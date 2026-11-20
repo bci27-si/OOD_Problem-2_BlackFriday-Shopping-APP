@@ -4,4 +4,8 @@ public abstract class ProductComponent {
 
     public abstract double getPrice();
 
+    public void add(ProductComponent product) {}
+
+    public void display(){}
+
 }

@@ -13,7 +13,7 @@ public class Product extends ProductComponent{
     }
 
     @Override
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 

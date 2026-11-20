@@ -1,17 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Category extends ProductComponent {
-
-
 
     String name;
     //String Category;
-    Double price;
+    //Double price;
+    // category list
+    private List<ProductComponent> categories = new ArrayList<>();
 
-    public Category(String name, String Category, double price) {
-
+    public Category(String name) {
         this.name = name;
         //this.Category = Category;
-        this.price = price;
-
+        //this.price = price;
     }
 
     @Override
@@ -21,18 +22,31 @@ public class Category extends ProductComponent {
 
     @Override
     public double getPrice() {
-        return this.price;
+        double total = 0;
+        for (ProductComponent category : categories) {
+            total+=category.getPrice();
+            // works for the products and categories
+        }
+        return total;
     }
 
-    public void add(){
+    @Override
+    public void add(ProductComponent product) {
         // add category of product ?
-    }
+        categories.add(product);
 
+    }
+    // add remove ?
+
+    @Override
     public void display(){
         //method to show the product’s details (e.g., name and price).
-        getName();
-        getPrice();
+        System.out.println("Category " + this.name + "Total: $ " + this.getPrice());
 
+        //loop over products
+        for (ProductComponent category : categories) {
+            category.display();
+        }
     }
 
 
